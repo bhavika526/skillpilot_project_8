@@ -1,0 +1,173 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #eef1f7;
+  color: #1d2a44;
+  display: flex;
+  justify-content: center;
+  padding: 30px 15px;
+}
+
+.signup {
+  background: #ffffff;
+  width: 100%;
+  max-width: 640px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 { text-align: center; }
+.subtitle { text-align: center; color: #5d6680; margin: 6px 0 22px; }
+
+/* ---------- Step indicator (Flexbox) ---------- */
+.progress {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.progress a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 6px;
+  color: #5d6680;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-bottom: 3px solid #ccd2e0;
+}
+
+.progress span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ccd2e0;
+  color: #ffffff;
+  font-size: 0.8rem;
+}
+
+/* Highlight the current step */
+body:not(:has(:target)) .progress a[href="#step1"],
+body:has(#step1:target) .progress a[href="#step1"],
+body:has(#step2:target) .progress a[href="#step2"],
+body:has(#step3:target) .progress a[href="#step3"] {
+  color: #1d2a44;
+  border-color: #f2b705;
+}
+
+body:not(:has(:target)) .progress a[href="#step1"] span,
+body:has(#step1:target) .progress a[href="#step1"] span,
+body:has(#step2:target) .progress a[href="#step2"] span,
+body:has(#step3:target) .progress a[href="#step3"] span {
+  background: #1d2a44;
+}
+
+/* ---------- The steps: a Flexbox row, one step visible at a time ---------- */
+.steps {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.step {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 4px;
+  scroll-margin-top: 220px;
+}
+
+.step h2 { font-size: 1.25rem; }
+
+/* ---------- Fields aligned with Flexbox ---------- */
+.fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.field {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field.full { flex-basis: 100%; }
+
+label { font-weight: bold; font-size: 0.95rem; }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ccd2e0;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+input:focus,
+select:focus { outline: none; border-color: #1d4ed8; }
+
+input:user-invalid,
+select:user-invalid { border-color: #d93025; background: #fff5f5; }
+
+small { color: #5d6680; font-size: 0.85rem; }
+
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+}
+
+/* ---------- Navigation buttons ---------- */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.btn {
+  flex: 0 1 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #1d2a44;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.next,
+.submit { background: #1d2a44; color: #ffffff; margin-left: auto; }
+.back { background: #ffffff; color: #1d2a44; }
+
+.btn:hover,
+.btn:focus-visible { background: #f2b705; border-color: #f2b705; color: #1d2a44; }
+
+@media (max-width: 480px) {
+  .signup { padding: 20px; }
+  .progress a { font-size: 0.8rem; }
+}

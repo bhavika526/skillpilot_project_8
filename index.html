@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Step Sign-Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="signup">
+    <h1>Create Your Account</h1>
+    <p class="subtitle">Complete the 3 steps below to sign up.</p>
+
+    <!-- Step indicator: each link jumps to a step (no JavaScript) -->
+    <nav class="progress" aria-label="Sign-up steps">
+      <a href="#step1"><span>1</span> User Info</a>
+      <a href="#step2"><span>2</span> Address</a>
+      <a href="#step3"><span>3</span> Password</a>
+    </nav>
+
+    <!-- The form is a Flexbox row. Each step is one full-width form section. -->
+    <form class="steps" action="#" method="post">
+
+      <!-- STEP 1: USER INFO -->
+      <section class="step" id="step1">
+        <h2>Step 1 of 3: User Info</h2>
+        <div class="fields">
+          <div class="field">
+            <label for="first">First Name</label>
+            <input type="text" id="first" name="first_name" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="last">Last Name</label>
+            <input type="text" id="last" name="last_name" autocomplete="family-name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel"
+                   pattern="[6-9][0-9]{9}" title="Enter a 10 digit mobile number" required>
+          </div>
+        </div>
+        <div class="buttons">
+          <a class="btn next" href="#step2">Next</a>
+        </div>
+      </section>
+
+      <!-- STEP 2: ADDRESS -->
+      <section class="step" id="step2">
+        <h2>Step 2 of 3: Address</h2>
+        <div class="fields">
+          <div class="field full">
+            <label for="street">Street Address</label>
+            <input type="text" id="street" name="street" autocomplete="street-address" required>
+          </div>
+          <div class="field">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" autocomplete="address-level2" required>
+          </div>
+          <div class="field">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" autocomplete="address-level1" required>
+          </div>
+          <div class="field">
+            <label for="pin">PIN Code</label>
+            <input type="text" id="pin" name="pin" autocomplete="postal-code"
+                   pattern="[0-9]{6}" title="Enter a 6 digit PIN code" required>
+          </div>
+          <div class="field">
+            <label for="country">Country</label>
+            <select id="country" name="country" autocomplete="country-name" required>
+              <option value="">-- Select --</option>
+              <option>India</option>
+              <option>United States</option>
+              <option>United Kingdom</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="buttons">
+          <a class="btn back" href="#step1">Back</a>
+          <a class="btn next" href="#step3">Next</a>
+        </div>
+      </section>
+
+      <!-- STEP 3: PASSWORD -->
+      <section class="step" id="step3">
+        <h2>Step 3 of 3: Password</h2>
+        <div class="fields">
+          <div class="field full">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" autocomplete="new-password"
+                   pattern="(?=.*[A-Za-z])(?=.*[0-9]).{8,}"
+                   title="At least 8 characters with letters and numbers" required>
+            <small>At least 8 characters, with letters and numbers.</small>
+          </div>
+          <label class="terms">
+            <input type="checkbox" name="terms" required>
+            I agree to the Terms and Conditions
+          </label>
+        </div>
+        <div class="buttons">
+          <a class="btn back" href="#step2">Back</a>
+          <button class="btn submit" type="submit">Create Account</button>
+        </div>
+      </section>
+
+    </form>
+  </main>
+
+</body>
+</html>
